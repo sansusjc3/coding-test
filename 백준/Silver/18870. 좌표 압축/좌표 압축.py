@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 N = int(input())
 xlst = list(map(int, input().split()))
 
