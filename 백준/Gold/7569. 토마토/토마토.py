@@ -1,4 +1,7 @@
+from sys import stdin
 from collections import deque
+input = stdin.readline
+
 dx = [0, 1, 0, -1, 0, 0] ## 우 밑 좌 상(시계방향)
 dy = [1, 0, -1, 0, 0, 0] ## 위 아래
 dz = [0, 0, 0, 0, 1, -1] ## 가장 밑에 상자부터 들어오므로
