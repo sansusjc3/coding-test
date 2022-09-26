@@ -22,12 +22,12 @@ for tc in range(int(input())):
     arr = [[0] * M for _ in range(N)]
     cnt = 0
     for _ in range(K):
-        y, x = map(int, input().split())
+        y, x = map(int, input().split()) ## x,y 입력이 좌표식으로 들어옴(주의)
         arr[x][y] = 1
 
-    for i in range(N):
+    for i in range(N): ## 각 좌표별로
         for j in range(M):
-            if arr[i][j] == 1:
-                BFS(i, j)
-                cnt += 1
+            if arr[i][j] == 1: ## 배추일 경우
+                BFS(i, j) ## 벌레 이동 시켜주고
+                cnt += 1 ## 벌레가 더 이상 갈 배추 없으면 cnt 올려준다.
     print(cnt)
