@@ -1,5 +1,5 @@
 dx = [-1, 0, 1, 0]  ## 북, 동, 남, 서
-dy = [0, 1, 0, -1]   # (문제 제시, 봐야 할 방향) ex(북, 서) (동, 북)
+dy = [0, 1, 0, -1] 
 
 def clean():
     global res
@@ -7,7 +7,7 @@ def clean():
     x, y = sx, sy
     while True:
         for _ in range(4):
-            d = (d+3)%4
+            d = (d+3)%4 ## 왼쪽 보고
             nx = x + dx[d]
             ny = y + dy[d]
             if 0 <= nx < N and 0 <= ny < M and arr[nx][ny] == 0:
