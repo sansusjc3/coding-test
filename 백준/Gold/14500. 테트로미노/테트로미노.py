@@ -40,15 +40,14 @@ def fuck(n, x, y, Sum):
         if Sum > maxV:
             maxV = Sum
         return
-   
-    x, y = sx, sy ## ㅗ ㅓ ㅏ ㅜ모양을 만드려면 한 점에서 세방향으로 탐색하면 된다.
+    
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i]
         if 0 <= nx < N and 0 <= ny < M and not visited[nx][ny]:
             visited[nx][ny] = 1
-            fuck(n + 1, nx, ny, Sum + arr[nx][ny])
-            visited[nx][ny] = 0
-
+            fuck(n + 1, x, y, Sum + arr[nx][ny])## ㅗ ㅓ ㅏ ㅜ모양을 만드려면 
+            visited[nx][ny] = 0  ## 한 점에서 세방향으로 탐색하면 되기 때문에 nx, ny가 아닌
+                                    ## x, y를 다시 넘겨준다.
 
 N, M = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
