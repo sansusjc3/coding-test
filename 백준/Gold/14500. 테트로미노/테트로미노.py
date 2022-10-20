@@ -7,10 +7,13 @@ def dfs(n, x, y, Sum):
     if n == 1:
         if maxV > Sum + best * 3:
             return
-    if n == 2:
+    elif n == 2:
         if maxV > Sum + best * 2:
             return
-    if n == 4:
+    elif n == 3:
+        if maxV > Sum + best:
+            return        
+    elif n == 4:
         if Sum > maxV:
             maxV = Sum
         return
@@ -28,10 +31,13 @@ def fuck(n, x, y, Sum):
     if n == 1:
         if maxV > Sum + best * 3:
             return
-    if n == 2:
+    elif n == 2:
         if maxV > Sum + best * 2:
             return
-    if n == 4:
+    elif n == 3:
+        if maxV > Sum + best:
+            return             
+    elif n == 4:
         if Sum > maxV:
             maxV = Sum
         return
