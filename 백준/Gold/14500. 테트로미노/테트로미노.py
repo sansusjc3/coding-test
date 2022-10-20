@@ -7,6 +7,9 @@ def dfs(n, x, y, Sum):
     if n == 1:
         if maxV > Sum + best * 3:
             return
+    if n == 2:
+        if maxV > Sum + best * 2:
+            return
     if n == 4:
         if Sum > maxV:
             maxV = Sum
@@ -24,6 +27,9 @@ def fuck(n, x, y, Sum):
     global maxV
     if n == 1:
         if maxV > Sum + best * 3:
+            return
+    if n == 2:
+        if maxV > Sum + best * 2:
             return
     if n == 4:
         if Sum > maxV:
