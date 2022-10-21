@@ -3,20 +3,16 @@ dy = [0, 1, 0, -1]
 
 def dfs(n, x, y, Sum):
     global maxV
-    if n == 1:  ## if n==1 ~ n==3 까지는 백트래킹 코드
-        if maxV > Sum + best * 3: ## (최대값이 현재값 + 배열의 최대 숫자*남은 횟수보다 클 경우 return)
+    
+    if n <= 3:
+        if maxV > Sum + best * (4-n): # 남은 기회 * 최선의 숫자를 해도 max보다 작다면..
             return
-    elif n == 2:
-        if maxV > Sum + best * 2:
-            return
-    elif n == 3:
-        if maxV > Sum + best:
-            return        
-    elif n == 4:
-        if Sum > maxV:
+        
+    if n == 4:
+        if maxV < Sum:
             maxV = Sum
         return
-
+    
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i]
         if 0 <= nx < N and 0 <= ny < M and not visited[nx][ny]:
