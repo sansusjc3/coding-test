@@ -5,7 +5,7 @@ def dfs(n, x, y, Sum):
     global maxV
     
     if n <= 3:
-        if maxV > Sum + best * (4-n): # 남은 기회 * 최선의 숫자를 해도 max보다 작다면..
+        if maxV > Sum + best * (4-n):
             return
         
     if n == 4:
