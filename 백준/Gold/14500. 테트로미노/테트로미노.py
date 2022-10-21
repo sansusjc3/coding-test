@@ -22,32 +22,8 @@ def dfs(n, x, y, Sum):
         if 0 <= nx < N and 0 <= ny < M and not visited[nx][ny]:
             visited[nx][ny] = 1
             dfs(n + 1, nx, ny, Sum + arr[nx][ny])
-            visited[nx][ny] = 0
-
-
-def fuck(n, x, y, Sum):
-    global maxV
-    if n == 1: ## if n==1 ~ n==3 까지는 백트래킹 코드
-        if maxV > Sum + best * 3:## (최대값이 현재값 + 배열의 최대 숫자*남은 횟수보다 클 경우 return)
-            return
-    elif n == 2:
-        if maxV > Sum + best * 2:
-            return
-    elif n == 3:
-        if maxV > Sum + best:
-            return             
-    elif n == 4:
-        if Sum > maxV:
-            maxV = Sum
-        return
-    
-    for i in range(4):
-        nx, ny = x + dx[i], y + dy[i]
-        if 0 <= nx < N and 0 <= ny < M and not visited[nx][ny]:
-            visited[nx][ny] = 1
-            fuck(n + 1, x, y, Sum + arr[nx][ny])## ㅗ ㅓ ㅏ ㅜ모양을 만드려면 
-            visited[nx][ny] = 0  ## 한 점에서 세방향으로 탐색하면 되기 때문에 nx, ny가 아닌
-                                    ## x, y를 다시 넘겨준다.
+            dfs(n + 1, x, y, Sum + arr[nx][ny])  ## ㅗ ㅓ ㅏ ㅜ모양을 만드려면 
+            visited[nx][ny] = 0                  ## x, y(제자리 탐색)를 다시 넘겨준다.
 
 N, M = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
@@ -61,8 +37,6 @@ for i in range(N):
     for j in range(M):
         visited[i][j] = 1
         dfs(1, i, j, arr[i][j]) ## ㅗ ㅏ ㅜ ㅓ를 제외한 모양
-        sx, sy = i, j
-        fuck(1, i, j, arr[i][j]) ## ㅗ ㅏ ㅜ ㅓ를 탐색하기 위함
         visited[i][j] = 0
 print(maxV)
 ## ㅗ ㅜ ㅏ ㅓ를 제외하고는
