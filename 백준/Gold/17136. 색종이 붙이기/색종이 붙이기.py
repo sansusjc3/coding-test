@@ -16,11 +16,11 @@ def dfs(x, y, res):
     if arr[x][y] == 1: ## 종이를 붙일 수 있는 칸이라면
         for p in range(5): 
             if paper[p] != 0 and x+p < 10 and y+p < 10: ## 종이를 쓸 수 있고, 배열 범위에 속하면
-                stop = 0 ## line(25참조)
+                stop = 0 ## (line25 참조)
                 for i in range(x, x+p+1): ## 종이의
                     for j in range(y, y+p+1): ## 칸 수
                         if arr[i][j] == 0: ## 종이를 붙일 범위 안에 0이 하나라도 있으면
-                            stop = 1  ## for문을 멈춘다.
+                            stop = 1  ## for문을 멈춘다.(stop은 line25 참조)
                             break
                     if stop: ## j가 정상 수행 됐을 때는 멈추면 안되므로 stop변수를 써주었다.(line19)
                         break
@@ -33,7 +33,7 @@ def dfs(x, y, res):
                     for i in range(x, x+p+1):
                         for j in range(y, y+p+1):
                             arr[i][j] = 1
-                    paper[p] += 1   ## (line(33)~line(36)은 재귀의 복구)
+                    paper[p] += 1   ## ((line33)~(line36)은 재귀의 복구)
     
     else: ## x, y칸이 종이를 붙일 수 없는 칸이라면
         dfs(x, y+1, res) ## 다음 칸 탐색 + 종이 안 붙였으므로 res로 호출(*res+1이 아니다)
