@@ -1,17 +1,19 @@
 def solution(record):
     answer = []
-    nick = {}
-    for r in record:
-        arr = r.split()
-        log = arr[0]
-        if log == 'Enter' or log == 'Change':
-            nick[arr[1]] = arr[2]
-    for r in record:
-        arr = r.split()
-        log = arr[0]
-        if log == 'Enter':
-            answer.append(f'{nick[arr[1]]}님이 들어왔습니다.')
-        elif log == 'Leave':
-            answer.append(f'{nick[arr[1]]}님이 나갔습니다.')
-    
+    nicknames = {}
+
+    for rec in record:
+        sp = rec.split(' ')
+
+        if sp[0] == 'Enter':
+            nicknames[sp[1]] = sp[2]
+            answer.append([sp[1], '님이 들어왔습니다.'])
+        if sp[0] == 'Leave':
+            answer.append([sp[1], '님이 나갔습니다.'])
+        if sp[0] == 'Change':
+            nicknames[sp[1]] = sp[2]
+
+    for a in range(len(answer)):
+        answer[a] = nicknames[answer[a][0]] + answer[a][1]
+
     return answer
