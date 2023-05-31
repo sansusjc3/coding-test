@@ -7,7 +7,7 @@ dp = [0 for _ in range(codeSize + 1)]
 
 # 해독이 불가할 때
 if code[0] == '0':
-    print("0")
+    print(0)
 
 else:
     code = '0' + code
