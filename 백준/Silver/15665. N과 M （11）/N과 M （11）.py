@@ -12,7 +12,8 @@ num = sorted(list(map(int, input().split())))
 res = []
 result = set()
 dfs(0)
-for i in sorted(list(result)):
+result = sorted(list(result))
+for i in result:
     print(*i)
 ## 넣고 다시 뽑는 구조
 ## N과 M(10)은 넣지 않고 뽑는 구조
