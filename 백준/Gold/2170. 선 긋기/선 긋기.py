@@ -1,7 +1,9 @@
-N = int(input())
+import sys
+N = int(sys.stdin.readline())
+
 arr = []
 for _ in range(N):
-    arr.append(tuple(map(int, input().split())))
+    arr.append(tuple(map(int, sys.stdin.readline().rstrip().split())))
 arr.sort()
 res = 0
 cri_s, cri_e = arr[0][0], arr[0][1]
